@@ -1,10 +1,12 @@
 const morganFreeman = require("morgan");
+const cors = require("cors");
 const { app, express } = require("./init");
 const { errorGeneral, error404 } = require("./errores");
 const login = require("./rutas/login");
 const listado = require("./rutas/listado");
 
 app.use(morganFreeman("dev"));
+app.use(cors());
 app.use(express.json());
 
 app.use("/usuarios", login);
